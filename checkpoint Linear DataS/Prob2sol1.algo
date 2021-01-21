@@ -1,0 +1,33 @@
+ALGORITHM algorithm_Prlm2S1
+VAR
+    tab1, tab2 : ARRAY_OF INTEGER[10];
+    i , j : INTEGER;
+    sum1 , sum2 , sum : INTEGER := 0;
+BEGIN
+ Write("Insert the elements of the first table");
+ Read(tab1[i]);
+ Write("Insert the elements of the second table");
+   Read(tab2[j]);
+
+    FOR i FROM 0 TO tab1.length-1 DO
+        IF (tab1[i] == tab2[j]) THEN
+            sum1:=sum1+tab1[i];
+            tab2[j]:=tab2[j+1];
+        ELSE
+          tab2[j]:=tab2[j+1];  
+        END_IF
+
+    END_FOR
+
+    FOR j FROM 0 TO tab2.length-1 DO
+        IF (tab2[j] == tab1[i]) THEN
+            sum2:=sum2+tab2[j];
+            tab1[i]:=tab1[i+1];
+        ELSE
+            tab1[i]:=tab1[i+1];
+        END_IF
+    END_FOR
+
+   sum:=sum1+sum2;
+   write (sum)
+END
